@@ -1,8 +1,31 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
+import Navbar from "./component/Navbar";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+const alliance = localFont({
+  src: [
+    {
+      path: "../public/font/Alliance No.1 Regular.otf",
+      style: "normal",
+      weight: "400",
+    },
+    {
+      path: "../public/font/Alliance No.1 Medium.otf",
+      style: "normal",
+      weight: "500",
+    },
+    {
+      path: "../public/font/Alliance No.1 SemiBold.otf",
+      style: "normal",
+      weight: "600",
+    },
+    {
+      path: "../public/font/Alliance No.1 Bold.otf",
+      style: "normal",
+      weight: "700",
+    },
+  ],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +39,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={alliance.className}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
