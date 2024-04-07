@@ -1,12 +1,19 @@
 import React from "react";
 
 interface IconProps {
-  name: "star" | "half-star" | "star-outline" | "search" | "hamburger";
+  name:
+    | "star"
+    | "half-star"
+    | "star-outline"
+    | "search"
+    | "hamburger"
+    | "close";
   className?: string;
-  size?: number;
+  width?: number;
+  height?: number;
 }
 
-const Icon = ({ name, className, size }: IconProps) => {
+const Icon = ({ name, className, width, height }: IconProps) => {
   switch (name) {
     case "star":
       return (
@@ -95,6 +102,32 @@ const Icon = ({ name, className, size }: IconProps) => {
           </defs>
         </svg>
       );
+    case "close":
+      return (
+        <svg
+          width={width}
+          height={height}
+          viewBox="0 0 34 34"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.728 12.7279L21.2133 21.2132"
+            stroke="#272E38"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M12.7281 21.2132L21.2134 12.7279"
+            stroke="#272E38"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+
     default:
       return null;
   }
