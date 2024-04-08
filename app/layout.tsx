@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={myFontAlliance.className}>
+      <body className={`bg-baseWhite ${myFontAlliance.className}`}>
         <NextTopLoader
           color="#2299DD"
           initialPosition={0.08}
