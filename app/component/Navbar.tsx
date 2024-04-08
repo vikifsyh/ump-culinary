@@ -160,7 +160,7 @@ export default function Navbar() {
             Kedai
           </div>
         </Link>
-        <Link href={"/tentangkami"}>
+        <Link href={"/about"}>
           <div
             className={`font-medium text-base lg:text-lg ease-in duration-200 hover:text-primary hover:border-b-2 hover:border-primary ${
               pathname === "/tentangkami"
