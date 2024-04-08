@@ -20,6 +20,7 @@ const config: Config = {
         baseBlack: "#1F2328",
         input: "#F2F4F8",
         greyHero: "#8F97A6",
+        borderDefault: "#E8E8E8",
         greySale: "#B0B0B0",
       },
     },
