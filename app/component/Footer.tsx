@@ -1,7 +1,6 @@
 import React from "react";
 import Icon from "../Icon/Icon";
 import Link from "next/link";
-import { link } from "fs";
 
 const sosialMedia = [
   {

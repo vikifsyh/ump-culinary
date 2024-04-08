@@ -26,7 +26,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky bg-baseWhite w-full px-5 py-4 lg:px-[100px] lg:py-5 flex justify-between items-center border-b border-[#CACACA] top-0 z-50`}
+      className={`sticky bg-blur w-full px-5 py-4 lg:px-[100px] lg:py-5 flex justify-between items-center border-b border-[#CACACA] top-0 z-50`}
     >
       <Link href={"/"} className="hidden lg:flex items-center">
         <div className="w-[50px] h-auto">
