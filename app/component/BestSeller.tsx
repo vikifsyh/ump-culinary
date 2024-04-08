@@ -27,10 +27,12 @@ export default function BestSeller() {
               </p>
               <div className="flex justify-between items-center">
                 <p className="text-sm lg:text-xl text-primary">
-                  <span className="text-[10px]">Rp.</span>
+                  <span className="text-[10px] md:text-sm">Rp.</span>
                   {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
                 </p>
-                <p className="text-[10px] text-greySale">{item.sold}</p>
+                <p className="text-[10px] md:text-xs text-greySale">
+                  {item.sold}
+                </p>
               </div>
             </div>
           </div>

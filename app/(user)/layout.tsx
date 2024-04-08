@@ -1,3 +1,4 @@
+import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
 import NextTopLoader from "nextjs-toploader";
 
@@ -11,6 +12,7 @@ export default function UserLayout({
       <NextTopLoader />
       <Navbar />
       {children}
+      <Footer />
     </>
   );
 }
