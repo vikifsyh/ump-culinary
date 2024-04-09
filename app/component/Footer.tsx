@@ -48,7 +48,7 @@ export default function Footer() {
           {" "}
           &copy; 2024 UMP Culinary. All Rights Reserved
         </p>
-        <div className="flex gap-4 text-baseBlack text-xs md:text-base justify-center mt-4">
+        <div className="flex gap-2 md:gap-4 text-baseBlack text-xs md:text-base justify-center mt-4">
           <p>support</p>
           <p>|</p>
           <p>contact us</p>
@@ -58,8 +58,8 @@ export default function Footer() {
           <p>rules</p>
           <p>|</p>
           <p>privacy</p>
-          <p className="hidden md:flex">|</p>
-          <p className="hidden md:flex">
+          <p className="hidden lg:flex">|</p>
+          <p className="hidden lg:flex">
             do not sell or shar emy personal information
           </p>
         </div>
