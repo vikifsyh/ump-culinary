@@ -32,10 +32,10 @@ export default function Navbar() {
         <div className="w-[50px] h-auto">
           <Image alt="ump-culinary" src={Logo} />
         </div>
-        <h1 className={`flex gap-1 ${myFontIntegral.className} text-2xl`}>
+        {/* <h1 className={`flex gap-1 ${myFontIntegral.className} text-2xl`}>
           <span className="text-primary">UMP</span>{" "}
           <span className="text-secondary">CULINARY</span>
-        </h1>
+        </h1> */}
       </Link>
 
       <div className="lg:hidden flex justify-between items-center w-full">
@@ -49,10 +49,10 @@ export default function Navbar() {
           <div className="w-[50px] h-auto">
             <Image alt="ump-culinary" src={Logo} />
           </div>
-          <h1 className={`flex gap-1 ${myFontIntegral.className} text-2xl`}>
+          {/* <h1 className={`flex gap-1 ${myFontIntegral.className} text-2xl`}>
             <span className="text-primary">UMP</span>{" "}
             <span className="text-secondary">CULINARY</span>
-          </h1>
+          </h1> */}
         </Link>
         <div
           className="cursor-pointer"
