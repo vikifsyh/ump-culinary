@@ -2,6 +2,7 @@ export const product = [
   {
     id: 1,
     stall: "Pentol Pak Bambang",
+    nomor: "6281225661530",
     makanan: [
       {
         id: Math.random() * 100 + 1,
@@ -26,11 +27,12 @@ export const product = [
   {
     id: 2,
     stall: "Gusto's",
+    nomor: "6281223344556",
     makanan: [
       {
         id: Math.random() * 100 + 1,
         image: "/img/ikan.jpg",
-        name: "Paket Gurameh Bakar",
+        name: "Paket Ikan Bakar",
         price: 20000,
       },
       {
@@ -50,6 +52,7 @@ export const product = [
   {
     stall: "Mas Bro",
     id: 3,
+    nomor: "6281223344886",
     makanan: [
       {
         id: Math.random() * 100 + 1,

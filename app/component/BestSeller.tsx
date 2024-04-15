@@ -2,9 +2,14 @@
 import React, { useState } from "react";
 import { product } from "../libs/product";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BestSeller() {
   const allFoods = product.flatMap((item) => item.makanan);
+
+  const handleBeliClick = (nomor: any) => {
+    window.location.href = `https://wa.me/${nomor}`;
+  };
 
   const randomFoods = allFoods.sort(() => Math.random() - 0.5).slice(0, 4);
 
@@ -23,7 +28,7 @@ export default function BestSeller() {
           return (
             <div
               key={index}
-              className="border border-borderDefault bg-white rounded-[4px] cursor-pointer"
+              className="border border-borderDefault bg-white rounded-[4px]"
             >
               <Image
                 src={food.image}
@@ -47,8 +52,11 @@ export default function BestSeller() {
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
                   </p>
 
-                  <button className="mt-2 md:mt-4 px-3 p-2 bg-primary text-baseWhite text-sm rounded-md w-full hover:scale-105">
-                    Beli
+                  <button
+                    onClick={() => handleBeliClick(seller && seller.nomor)}
+                    className="mt-2 md:mt-4 px-3 p-2 bg-primary text-baseWhite text-sm rounded-md w-full hover:scale-105"
+                  >
+                    Pesan
                   </button>
                 </div>
               </div>
