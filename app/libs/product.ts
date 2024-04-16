@@ -20,7 +20,7 @@ export const product = [
         id: Math.random() * 100 + 1,
         name: "Pentol Kuah",
         price: 5000,
-        image: "/img/pentolkuah.jpg",
+        image: "/img/pentolbiasa.jpg",
       },
     ],
   },
