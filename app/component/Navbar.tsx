@@ -6,31 +6,30 @@ import { usePathname } from "next/navigation";
 import Logo from "@/public/img/ump-culinary.png";
 import Image from "next/image";
 import { myFontIntegral } from "../fonts";
+import SignIn from "./Login/SignIn";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isSearchVisible, setSearchVisible] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
-    if (isMenuOpen || isSearchVisible) {
+    if (isMenuOpen || isSearchVisible || isLogin) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
 
-    // Close menu when navigating
     const closeMenuOnNavigation = () => {
       setMenuOpen(false);
     };
 
-    // Add event listener for navigation
     document.addEventListener(
       "next_router:routeChangeStart",
       closeMenuOnNavigation
     );
 
-    // Clean up
     return () => {
       document.body.style.overflow = "";
       document.removeEventListener(
@@ -38,7 +37,7 @@ export default function Navbar() {
         closeMenuOnNavigation
       );
     };
-  }, [isMenuOpen, isSearchVisible]);
+  }, [isMenuOpen, isSearchVisible, isLogin]);
 
   const closeMenu = () => {
     setMenuOpen(false);
@@ -138,7 +137,10 @@ export default function Navbar() {
                     </Link>
                   </div>
                   <div className="mt-5">
-                    <button className="ease-in duration-200 rounded-lg p-2 w-full text-white bg-primary hover:bg-primary/50 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-opacity-50">
+                    <button
+                      className="ease-in duration-200 rounded-lg p-2 w-full text-white bg-primary hover:bg-primary/50 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-opacity-50"
+                      onClick={() => setIsLogin(true)}
+                    >
                       Masuk
                     </button>
                   </div>
@@ -207,7 +209,10 @@ export default function Navbar() {
             className="p-2 pl-8 pr-16 rounded-full border border-gray w-full outline outline-1 active:outline-gray focus:outline-gray focus:ring-0 focus:border-gray-300 transition-all duration-300 ease-in-out hover:ring-0 hover:border-gray-300 text-gray"
           />
         </div>
-        <button className="hidden lg:flex px-4 p-3 rounded-lg border ease-in duration-300  bg-primary hover:bg-primary/50 text-baseWhite">
+        <button
+          className="hidden lg:flex px-4 p-3 rounded-lg border ease-in duration-300  bg-primary hover:bg-primary/50 text-baseWhite"
+          onClick={() => setIsLogin(true)}
+        >
           Masuk
         </button>
       </div>
@@ -240,6 +245,8 @@ export default function Navbar() {
           </div>
         </>
       )}
+
+      {isLogin && <SignIn setIsLogin={setIsLogin} />}
     </nav>
   );
 }
