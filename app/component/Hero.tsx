@@ -4,7 +4,7 @@ import HeroImage from "@/public/img/hero2c.png";
 
 export default function Hero() {
   return (
-    <div className="my-5 mx-5 md:m-10 lg:m-[100px] md:flex md:justify-between ">
+    <div className="my-5 mx-5 md:m-10 lg:m-[100px] md:flex md:justify-between items-center">
       <div className="md:max-w-md lg:max-w-3xl">
         <h2 className="font-bold text-base lg:text-[32px] text-baseBlack">
           Selamat Datang di

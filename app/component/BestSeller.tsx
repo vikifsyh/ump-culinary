@@ -33,10 +33,9 @@ export default function BestSeller() {
               <Image
                 src={food.image}
                 alt={food.name}
-                width={1000}
-                height={1000}
-                className="w-full max-h-40 object-fill mb-4 rounded-t-[4px]"
-                style={{ minHeight: "160px" }}
+                width={150}
+                height={150}
+                className="w-full object-cover mb-4 rounded-t-[4px]"
               />
               <div className="py-2 px-2 lg:px-3">
                 <p className="text-sm lg:text-xl text-baseBlack">{food.name}</p>
