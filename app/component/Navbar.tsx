@@ -163,7 +163,7 @@ export default function Navbar() {
         <Link href={"/about"}>
           <div
             className={`font-medium text-base lg:text-lg ease-in duration-200 hover:text-primary hover:border-b-2 hover:border-primary ${
-              pathname === "/tentangkami"
+              pathname === "/about"
                 ? "text-primary border-b-2 border-primary"
                 : ""
             }`}
