@@ -19,10 +19,30 @@ export default function Navbar() {
       document.body.style.overflow = "";
     }
 
+    // Close menu when navigating
+    const closeMenuOnNavigation = () => {
+      setMenuOpen(false);
+    };
+
+    // Add event listener for navigation
+    document.addEventListener(
+      "next_router:routeChangeStart",
+      closeMenuOnNavigation
+    );
+
+    // Clean up
     return () => {
       document.body.style.overflow = "";
+      document.removeEventListener(
+        "next_router:routeChangeStart",
+        closeMenuOnNavigation
+      );
     };
   }, [isMenuOpen, isSearchVisible]);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <nav
@@ -87,6 +107,7 @@ export default function Navbar() {
                     <Link
                       className="text-lg -ml-5 text-baseBlack  font-semibold"
                       href={"/"}
+                      onClick={closeMenu}
                     >
                       Beranda
                     </Link>
@@ -94,7 +115,8 @@ export default function Navbar() {
                   <div className="px-10 py-3 hover:bg-primary/10 rounded-md cursor-pointer">
                     <Link
                       className="text-lg -ml-5 text-baseBlack  font-semibold"
-                      href={"/"}
+                      href={"/menu"}
+                      onClick={closeMenu}
                     >
                       Menu
                     </Link>
@@ -102,7 +124,7 @@ export default function Navbar() {
                   <div className="px-10 py-3 hover:bg-primary/10 rounded-md cursor-pointer">
                     <Link
                       className="text-lg -ml-5 text-baseBlack  font-semibold"
-                      href={"/"}
+                      href={"/kedai"}
                     >
                       Kedai
                     </Link>
@@ -110,7 +132,7 @@ export default function Navbar() {
                   <div className="px-10 py-3 hover:bg-primary/10 rounded-md cursor-pointer">
                     <Link
                       className="text-lg -ml-5 text-baseBlack  font-semibold"
-                      href={"/"}
+                      href={"/about"}
                     >
                       Tentang Kami
                     </Link>
