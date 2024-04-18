@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { myFontAlliance } from "./fonts";
 import NextTopLoader from "nextjs-toploader";
+import NextAuthProvider from "../app/component/auth/authProvider";
 
 export const metadata: Metadata = {
   title: "UMP Culinary | Platofrm UMKM Lokal",
@@ -16,8 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`bg-baseWhite ${myFontAlliance.className}`}>
-        <NextTopLoader />
-        {children}
+        <NextAuthProvider>{children}</NextAuthProvider>
       </body>
     </html>
   );

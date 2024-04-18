@@ -4,12 +4,26 @@ import BestSeller from "../component/BestSeller";
 import Testimonial from "../component/Testimonial";
 import Benefit from "../component/Benefit";
 
-export default function Main() {
+const { db } = require("@vercel/postgres");
+
+const stalls = async (client: any) => {
+  const getStalls = await client.sql`
+    select * from stalls
+  `;
+
+  return getStalls;
+};
+
+export default async function Main() {
+  const client = await db.connect();
+  const data = await stalls(client);
+
+  // console.log("DATA", data.rows);
   return (
     <>
       <Hero />
       <Benefit />
-      <BestSeller />
+      <BestSeller data={data.rows} />
       <Testimonial />
     </>
   );

@@ -3,6 +3,15 @@
 import React from "react";
 import Link from "next/link";
 import Icon from "@/app/Icon/Icon";
+import { signIn } from "next-auth/react";
+
+const sigInOptions = [
+  {
+    name: "Google",
+    icon: <Icon name="google" />,
+    handleSignIn: null,
+  },
+];
 
 const SignIn = ({ setIsLogin }: any) => {
   return (
@@ -27,14 +36,20 @@ const SignIn = ({ setIsLogin }: any) => {
           </div>
 
           <div className="flex justify-center flex-col items-center gap-3 mx-8 md:mx-20">
-            <button className="w-full rounded-full p-2 border border-dark relative focus:outline-none focus:ring-2 focus:ring-gray focus:ring-opacity-50">
-              <div className="absolute left-3">
-                <Icon name="google" />
-              </div>
-              <span className="ml-2 font-normal text-base">
-                Masuk dengan Google
-              </span>
-            </button>
+            {sigInOptions.map((option) => (
+              <button
+                key={option.name}
+                className="w-full rounded-full p-2 border border-dark relative focus:outline-none focus:ring-2 focus:ring-gray focus:ring-opacity-50"
+              >
+                <div className="absolute left-3">{option.icon}</div>
+                <span
+                  className="ml-2 font-normal text-base"
+                  onClick={() => option.name === "Google" && signIn("google")}
+                >
+                  Masuk dengan {option.name}
+                </span>
+              </button>
+            ))}
           </div>
 
           <div className="text-center flex flex-col mt-20">
