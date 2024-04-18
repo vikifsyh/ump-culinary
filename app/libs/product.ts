@@ -5,13 +5,15 @@ export const product = [
     nomor: "6281225661530",
     makanan: [
       {
-        id: Math.random() * 100 + 1,
+        // id: Math.random() * 100 + 1,
+        id: "74.17634563222792",
         name: "Pentol Mercon",
         price: 10000,
         image: "/img/pentol.png",
       },
       {
-        id: Math.random() * 100 + 1,
+        // id: Math.random() * 100 + 1,
+        id: "13.99543930187399",
         name: "Pentol Isi Telur",
         price: 13000,
         image: "/img/pentolisi.jpg",

@@ -1,6 +1,6 @@
 const { db } = require("@vercel/postgres");
 const { users } = require("../app/libs/placeholder-data.js");
-const { products } = require("../app/libs/placeholder-data.js");
+const { stalls } = require("../app/libs/placeholder-data.js");
 const bcrypt = require("bcrypt");
 
 async function seedUsers(client) {
@@ -42,11 +42,10 @@ async function seedUsers(client) {
   }
 }
 
-async function seedProducts(client) {
+async function seedStalls(client) {
   try {
-    // Create the "products" table if it doesn't exist
     const createTable = await client.sql`
-      CREATE TABLE IF NOT EXISTS products (
+      CREATE TABLE IF NOT EXISTS stalls (
         id SERIAL PRIMARY KEY,
         stall VARCHAR(255) NOT NULL,
         nomor VARCHAR(255) NOT NULL,
@@ -54,12 +53,12 @@ async function seedProducts(client) {
       );
     `;
 
-    console.log(`Created "products" table`);
+    console.log(`Created "stalls" table`);
 
     // Insert data into the "products" table
-    const insertedProducts = await Promise.all(
-      products.map(async (product) => {
-        const formattedMakanan = product.makanan.map((food) => {
+    const insertedStalls = await Promise.all(
+      stalls.map(async (stalls) => {
+        const formattedMakanan = stalls.makanan.map((food) => {
           return {
             id: food.id,
             name: food.name,
@@ -68,8 +67,8 @@ async function seedProducts(client) {
           };
         });
         return client.sql`
-        INSERT INTO products (stall, nomor, makanan)
-        VALUES (${product.stall}, ${product.nomor}, ${JSON.stringify(
+        INSERT INTO stalls (stall, nomor, makanan)
+        VALUES (${stalls.stall}, ${stalls.nomor}, ${JSON.stringify(
           formattedMakanan
         )})
         ON CONFLICT (id) DO NOTHING;
@@ -77,11 +76,11 @@ async function seedProducts(client) {
       })
     );
 
-    console.log(`Seeded ${insertedProducts.length} products`);
+    console.log(`Seeded ${insertedStalls.length} stalls`);
 
     return {
       createTable,
-      products: insertedProducts,
+      stalls: insertedStalls,
     };
   } catch (error) {
     console.error("Error seeding products:", error);
@@ -93,6 +92,7 @@ async function main() {
   const client = await db.connect();
 
   await seedUsers(client);
+  await seedStalls(client);
 
   await client.end();
 }

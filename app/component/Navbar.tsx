@@ -3,10 +3,12 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Icon from "../Icon/Icon";
 import { usePathname } from "next/navigation";
-import Logo from "@/public/img/ump-culinary.png";
 import Image from "next/image";
 import { myFontIntegral } from "../fonts";
 import SignIn from "./Login/SignIn";
+import { signOut, useSession } from "next-auth/react";
+import { AvatarFallback, Avatar, AvatarImage } from "@/components/ui/avatar";
+import Logo from "@/public/img/ump-culinary.png";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -43,13 +45,14 @@ export default function Navbar() {
     setMenuOpen(false);
   };
 
+  const { data: session } = useSession();
   return (
     <nav
       className={`sticky bg-blur w-full px-5 py-4 lg:px-[100px] lg:py-5 flex justify-between items-center border-b border-[#CACACA] top-0 z-50`}
     >
       <Link href={"/"} className="hidden lg:flex items-center">
         <div className="w-[50px] h-auto">
-          <Image alt="ump-culinary" src={Logo} />
+          <Image width={50} height={50} alt="ump-culinary" src={Logo} />
         </div>
         {/* <h1 className={`flex gap-1 ${myFontIntegral.className} text-2xl`}>
           <span className="text-primary">UMP</span>{" "}
@@ -66,7 +69,7 @@ export default function Navbar() {
         </div>
         <Link href={"/"} className="flex items-center">
           <div className="w-[50px] h-auto">
-            <Image alt="ump-culinary" src={Logo} />
+            <Image width={50} height={50} alt="ump-culinary" src={Logo} />
           </div>
           {/* <h1 className={`flex gap-1 ${myFontIntegral.className} text-2xl`}>
             <span className="text-primary">UMP</span>{" "}
@@ -92,7 +95,12 @@ export default function Navbar() {
               <div className="p-5">
                 <div className="w-[50px] h-auto">
                   <Link className="flex items-center" href={"/"}>
-                    <Image alt="ump-culinary" src={Logo} />
+                    <Image
+                      alt="ump-culinary"
+                      src={Logo}
+                      width={50}
+                      height={50}
+                    />
                     <h1
                       className={`flex gap-1 ${myFontIntegral.className} text-xl`}
                     >
@@ -136,14 +144,38 @@ export default function Navbar() {
                       Tentang Kami
                     </Link>
                   </div>
-                  <div className="mt-5">
-                    <button
-                      className="ease-in duration-200 rounded-lg p-2 w-full text-white bg-primary hover:bg-primary/50 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-opacity-50"
-                      onClick={() => setIsLogin(true)}
+                  {session?.user ? (
+                    <Link
+                      href={"/"}
+                      className="flex items-center gap-2 sm:gap-4"
                     >
-                      Masuk
-                    </button>
-                  </div>
+                      <Avatar className="h-14 w-14">
+                        <AvatarImage src={session?.user?.image || ""} />
+                        <AvatarFallback>
+                          {session?.user?.name
+                            ?.split(" ")
+                            .map((n: any) => n[0])}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="flex flex-col">
+                        <span className="text-base text-slate-900 font-semibold">
+                          {session?.user?.name}
+                        </span>
+                        <span className="mt-0.5 text-gray">
+                          {session?.user?.email}
+                        </span>
+                      </div>
+                    </Link>
+                  ) : (
+                    <div className="mt-5">
+                      <button
+                        className="ease-in duration-200 rounded-lg p-2 w-full text-white bg-primary hover:bg-primary/50 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-opacity-50"
+                        onClick={() => setIsLogin(true)}
+                      >
+                        Masuk
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </aside>
@@ -209,12 +241,26 @@ export default function Navbar() {
             className="p-2 pl-8 pr-16 rounded-full border border-gray w-full outline outline-1 active:outline-gray focus:outline-gray focus:ring-0 focus:border-gray-300 transition-all duration-300 ease-in-out hover:ring-0 hover:border-gray-300 text-gray"
           />
         </div>
-        <button
-          className="hidden lg:flex px-4 p-3 rounded-lg border ease-in duration-300  bg-primary hover:bg-primary/50 text-baseWhite"
-          onClick={() => setIsLogin(true)}
-        >
-          Masuk
-        </button>
+        {session?.user ? (
+          <div onClick={() => signOut()} className="flex items-center gap-2">
+            <Avatar className="">
+              <AvatarImage src={session?.user?.image || ""} />
+              <AvatarFallback>
+                {session?.user?.name?.split(" ").map((n: any) => n[0])}
+              </AvatarFallback>
+            </Avatar>
+            <span className="text-base text-slate-900 font-semibold">
+              {session?.user?.name?.split(" ").map((n: any) => n)[0]}
+            </span>
+          </div>
+        ) : (
+          <button
+            className="hidden lg:flex px-4 p-3 rounded-lg border ease-in duration-300  bg-primary hover:bg-primary/50 text-baseWhite"
+            onClick={() => setIsLogin(true)}
+          >
+            Masuk
+          </button>
+        )}
       </div>
 
       {isSearchVisible && (
@@ -222,7 +268,7 @@ export default function Navbar() {
           <div className="fixed bg-baseWhite top-0 right-0 left-0 h-full md:h-40 z-50 px-5">
             <div className="py-5 flex items-center gap-4">
               <div className="w-[50px] h-auto">
-                <Image alt="ump-culinary" src={Logo} />
+                <Image alt="ump-culinary" src={Logo} width={50} height={50} />
               </div>
               <div className="relative w-full">
                 <input
