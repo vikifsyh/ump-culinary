@@ -242,7 +242,10 @@ export default function Navbar() {
           />
         </div>
         {session?.user ? (
-          <div onClick={() => signOut()} className="flex items-center gap-2">
+          <div
+            onClick={() => signOut()}
+            className="hidden lg:flex items-center gap-2"
+          >
             <Avatar className="">
               <AvatarImage src={session?.user?.image || ""} />
               <AvatarFallback>
