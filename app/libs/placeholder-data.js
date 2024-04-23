@@ -1,3 +1,12 @@
+const users = [
+  {
+    id: "410544b2-4001-4271-9855-fec4b6a6442a",
+    name: "User",
+    email: "user@gmail.com",
+    password: "12345678",
+  },
+];
+
 const stalls = [
   {
     id: 1,
@@ -5,7 +14,7 @@ const stalls = [
     img: "/img/kenari.png",
     nomor: "62813993651112",
     location: "Jl Tegal Mulya",
-    makananan: [
+    makanan: [
       {
         id: 11,
         name: "Nasi Telor Dadar",
@@ -80,7 +89,7 @@ const stalls = [
     img: "/img/platr.png",
     nomor: "6285600398436",
     location: "Dukuhwaluh III, Dukuhwaluh",
-    makananan: [
+    makanan: [
       {
         id: 22,
         name: "Es Teh",
@@ -113,7 +122,7 @@ const stalls = [
     img: "/img/salem1.png",
     nomor: "6282325555586",
     location: "Jl. Tegal Mulya",
-    makananan: [
+    makanan: [
       {
         id: 31,
         name: "Nasi Totog Oncom",
@@ -176,7 +185,7 @@ const stalls = [
     img: "/img/g-penk.png",
     nomor: "6285643309920",
     location: "Jl. Tegal Mulya 5",
-    makananan: [
+    makanan: [
       {
         id: 40,
         name: "Tumis Kangkung",
@@ -204,6 +213,8 @@ const stalls = [
     ],
   },
 ];
+
 module.exports = {
+  users,
   stalls,
 };
