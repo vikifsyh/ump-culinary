@@ -1,3 +1,4 @@
+import About from "@/app/component/About";
 import { Metadata } from "next";
 import React from "react";
 
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function page() {
-  return <div>Tentang Kami</div>;
+  return (
+    <>
+      <About />
+    </>
+  );
 }
