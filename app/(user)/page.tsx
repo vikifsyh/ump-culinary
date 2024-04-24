@@ -3,6 +3,7 @@ import Hero from "../component/Hero";
 import BestSeller from "../component/BestSeller";
 import Testimonial from "../component/Testimonial";
 import Benefit from "../component/Benefit";
+import Kedai from "../component/Kedai";
 
 const { db } = require("@vercel/postgres");
 
@@ -22,6 +23,7 @@ export default async function Main() {
   return (
     <>
       <Hero />
+      <Kedai data={data.rows} />
       <Benefit />
       <BestSeller data={data.rows} />
       <Testimonial />

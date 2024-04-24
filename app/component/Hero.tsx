@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import HeroImage from "@/public/img/hero2c.png";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -18,9 +19,11 @@ export default function Hero() {
           tercinta. Dukung komunitas lokal dan temukan produk berkualitas di
           sini. Mari mulai petualangan belanja Anda!
         </p>
-        <button className="bg-primary p-2 md:p-4 text-white lg:px-6 lg:py-4 rounded-lg lg:rounded-2xl mt-6 hover:bg-primary/50 w-full sm:w-auto">
-          Jelajahi Makanan
-        </button>
+        <Link href={"/makanan"}>
+          <button className="bg-primary p-2 md:p-4 text-white lg:px-6 lg:py-4 rounded-lg lg:rounded-2xl mt-6 hover:bg-primary/50 w-full sm:w-auto">
+            Jelajahi Makanan
+          </button>
+        </Link>
       </div>
       <div className="max-w-md">
         <Image alt="Hero" src={HeroImage} />
