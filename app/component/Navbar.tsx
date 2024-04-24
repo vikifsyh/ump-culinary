@@ -140,6 +140,7 @@ export default function Navbar() {
                     <Link
                       className="text-lg -ml-5 text-baseBlack  font-semibold"
                       href={"/about"}
+                      onClick={closeMenu}
                     >
                       Tentang Kami
                     </Link>
@@ -194,7 +195,7 @@ export default function Navbar() {
             Beranda
           </div>
         </Link>
-        <Link href={"/menu"}>
+        <Link href={"/makanan"}>
           <div
             className={`font-medium text-base lg:text-lg ease-in duration-200 hover:text-primary hover:border-b-2 hover:border-primary ${
               pathname === "/makanan"
