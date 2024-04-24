@@ -122,20 +122,20 @@ export default function Navbar() {
                   <div className="px-10 py-3 hover:bg-primary/10 rounded-md cursor-pointer">
                     <Link
                       className="text-lg -ml-5 text-baseBlack  font-semibold"
-                      href={"/menu"}
+                      href={"/makanan"}
                       onClick={closeMenu}
                     >
-                      Menu
+                      Makanan
                     </Link>
                   </div>
-                  <div className="px-10 py-3 hover:bg-primary/10 rounded-md cursor-pointer">
+                  {/* <div className="px-10 py-3 hover:bg-primary/10 rounded-md cursor-pointer">
                     <Link
                       className="text-lg -ml-5 text-baseBlack  font-semibold"
                       href={"/kedai"}
                     >
                       Kedai
                     </Link>
-                  </div>
+                  </div> */}
                   <div className="px-10 py-3 hover:bg-primary/10 rounded-md cursor-pointer">
                     <Link
                       className="text-lg -ml-5 text-baseBlack  font-semibold"
@@ -197,15 +197,15 @@ export default function Navbar() {
         <Link href={"/menu"}>
           <div
             className={`font-medium text-base lg:text-lg ease-in duration-200 hover:text-primary hover:border-b-2 hover:border-primary ${
-              pathname === "/menu"
+              pathname === "/makanan"
                 ? "text-primary border-b-2 border-primary"
                 : ""
             }`}
           >
-            Menu
+            Makanan
           </div>
         </Link>
-        <Link href={"/kedai"}>
+        {/* <Link href={"/kedai"}>
           <div
             className={`font-medium text-base lg:text-lg ease-in duration-200 hover:text-primary hover:border-b-2 hover:border-primary ${
               pathname === "/kedai"
@@ -215,7 +215,7 @@ export default function Navbar() {
           >
             Kedai
           </div>
-        </Link>
+        </Link> */}
         <Link href={"/about"}>
           <div
             className={`font-medium text-base lg:text-lg ease-in duration-200 hover:text-primary hover:border-b-2 hover:border-primary ${

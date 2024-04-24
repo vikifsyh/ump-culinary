@@ -64,7 +64,7 @@ export default function BestSeller({ data }: BestSellerProps) {
               key={index}
               className="border border-borderDefault bg-white rounded-[4px]"
             >
-              <div className="flex flex-col">
+              <div className="">
                 <div key={randomFood.id} className="flex flex-col">
                   <Image
                     src={randomFood.image}
@@ -72,10 +72,10 @@ export default function BestSeller({ data }: BestSellerProps) {
                     width={1000}
                     height={1000}
                     className="w-full object-cover mb-4 rounded-t-[4px]"
-                    style={{ height: 200 }}
+                    style={{ height: 300 }}
                   />
                   <div className="py-2 px-2 lg:px-3">
-                    <p className="text-sm lg:text-xl text-baseBlack">
+                    <p className="text-base lg:text-xl text-baseBlack">
                       {randomFood.name}
                     </p>
                     <p className="text-xs lg:text-sm text-greyHero">
