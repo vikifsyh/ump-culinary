@@ -51,9 +51,9 @@ export default function Food({ data }: FoodProps) {
   };
 
   return (
-    <div className="lg:mx-[100px] lg:my-[72px] m-5">
+    <div className="lg:mx-[100px] lg:my-14 m-5">
       <h1 className="lg:text-2xl text-lg font-semibold text-baseBlack">
-        Pilihan Menu
+        Sajian Kuliner
       </h1>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-7 mt-5 lg:mt-10">
         {currentItems.map((food) => (
