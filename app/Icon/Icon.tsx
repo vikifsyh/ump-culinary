@@ -19,7 +19,9 @@ interface IconProps {
     | "plus"
     | "google"
     | "location"
-    | "rate";
+    | "rate"
+    | "next"
+    | "prev";
   className?: string;
   width?: number;
   height?: number;
@@ -27,6 +29,36 @@ interface IconProps {
 
 const Icon = ({ name, className, width, height }: IconProps) => {
   switch (name) {
+    case "next":
+      return (
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.7999 23.7L5.3999 22.3L15.6999 12L5.3999 1.69999L6.7999 0.299988L18.4999 12L6.7999 23.7Z"
+            fill="#28166F"
+          />
+        </svg>
+      );
+    case "prev":
+      return (
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17.2001 23.7L18.6001 22.3L8.3001 12L18.6001 1.69999L17.2001 0.299988L5.5001 12L17.2001 23.7Z"
+            fill="#28166F"
+          />
+        </svg>
+      );
     case "rate":
       return (
         <svg

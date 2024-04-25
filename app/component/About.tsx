@@ -39,7 +39,7 @@ export default function About() {
   return (
     <div className="w-full">
       <Image src={HeroAbout} alt="Hero" width={2000} height={1000} />
-      <div className="lg:mx-[100px] p-5 lg:my-10 lg:flex lg:justify-between mt-14 gap-20">
+      <div className="lg:mx-[100px] m-5 lg:my-10 lg:flex lg:justify-between mt-14 gap-20">
         <div>
           <div className="flex items-center">
             <Image src={Logo} alt="ump-culinary" />
