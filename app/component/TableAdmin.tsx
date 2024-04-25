@@ -2,15 +2,16 @@ import React from "react";
 import NavDashboard from "./NavDashboard";
 import Image from "next/image";
 
-// Importing product data
-import { product } from "../libs/product";
 import ButtonDelete from "./ButtonDelete";
 import ButtonUpdate from "./ButtonUpdate";
 import ButtonInsert from "./ButtonInsert";
+import { stalls } from "../libs/product";
 
 export default function TableAdmin() {
   // Filter product data for a specific store
-  const stallData = product.find((item) => item.stall === "Pentol Pak Bambang");
+  const stallData = stalls.find(
+    (item: any) => item.stall === "Pentol Pak Bambang"
+  );
 
   return (
     <div className="bg-white rounded-2xl min-h-[95vh]">
@@ -40,7 +41,7 @@ export default function TableAdmin() {
               </thead>
               <tbody>
                 {stallData &&
-                  stallData.makanan.map((item) => (
+                  stallData.makanan.map((item: any) => (
                     <tr key={item.id}>
                       <td className="p-5 align-middle whitespace-nowrap border-b">
                         {item.id}
