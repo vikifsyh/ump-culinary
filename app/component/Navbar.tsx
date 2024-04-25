@@ -122,10 +122,10 @@ export default function Navbar() {
                   <div className="px-10 py-3 hover:bg-primary/10 rounded-md cursor-pointer">
                     <Link
                       className="text-lg -ml-5 text-baseBlack  font-semibold"
-                      href={"/makanan"}
+                      href={"/kuliner"}
                       onClick={closeMenu}
                     >
-                      Makanan
+                      Kuliner
                     </Link>
                   </div>
                   {/* <div className="px-10 py-3 hover:bg-primary/10 rounded-md cursor-pointer">
@@ -195,15 +195,15 @@ export default function Navbar() {
             Beranda
           </div>
         </Link>
-        <Link href={"/makanan"}>
+        <Link href={"/kuliner"}>
           <div
             className={`font-medium text-base lg:text-lg ease-in duration-200 hover:text-primary hover:border-b-2 hover:border-primary ${
-              pathname === "/makanan"
+              pathname === "/kuliner"
                 ? "text-primary border-b-2 border-primary"
                 : ""
             }`}
           >
-            Makanan
+            Kuliner
           </div>
         </Link>
         {/* <Link href={"/kedai"}>
